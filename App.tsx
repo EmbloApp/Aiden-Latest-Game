@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import {
+  Linking,
   SafeAreaView,
   StatusBar,
   StyleSheet,
@@ -194,6 +195,52 @@ const createPickupPosition = (
     y: 500,
   };
 };
+
+
+const AIDENS_GAMES_URL = 'https://aiden-games.com.au';
+
+function BackToAidensGamesButton() {
+  return (
+    <View
+      pointerEvents="box-none"
+      style={{
+        position: 'absolute',
+        bottom: 12,
+        right: 12,
+        zIndex: 10000,
+        elevation: 20,
+      }}
+    >
+      <TouchableOpacity
+        accessibilityRole="button"
+        accessibilityLabel="Back to Aiden's Games"
+        activeOpacity={0.8}
+        onPress={() => {
+          void Linking.openURL(AIDENS_GAMES_URL);
+        }}
+        style={{
+          backgroundColor: 'rgba(7, 21, 47, 0.94)',
+          borderWidth: 2,
+          borderColor: '#FFFFFF',
+          borderRadius: 8,
+          paddingHorizontal: 14,
+          paddingVertical: 7,
+        }}
+      >
+        <Text
+          style={{
+            color: '#FFFFFF',
+            fontSize: 13,
+            fontWeight: '900',
+            letterSpacing: 0.5,
+          }}
+        >
+          ← AIDEN'S GAMES
+        </Text>
+      </TouchableOpacity>
+    </View>
+  );
+}
 
 export default function App() {
   const { width, height } = useWindowDimensions();
@@ -603,6 +650,7 @@ export default function App() {
   if (status === 'menu') {
     return (
       <SafeAreaView style={styles.menuScreen}>
+        <BackToAidensGamesButton />
         <StatusBar hidden />
 
         <View style={styles.menuSun} />
@@ -647,6 +695,7 @@ export default function App() {
   if (status === 'gameOver') {
     return (
       <SafeAreaView style={styles.gameOverScreen}>
+        <BackToAidensGamesButton />
         <StatusBar hidden />
 
         <Text style={styles.gameOverTitle}>
@@ -669,6 +718,7 @@ export default function App() {
 
     return (
       <SafeAreaView style={styles.completeScreen}>
+        <BackToAidensGamesButton />
         <StatusBar hidden />
 
         <Text style={styles.completeTitle}>
@@ -780,6 +830,7 @@ export default function App() {
 
   return (
     <SafeAreaView style={styles.gameScreen}>
+        <BackToAidensGamesButton />
       <StatusBar hidden />
 
       <View style={styles.hud}>
