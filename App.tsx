@@ -205,7 +205,7 @@ function BackToAidensGamesButton() {
       pointerEvents="box-none"
       style={{
         position: 'absolute',
-        bottom: 12,
+        bottom: 82,
         right: 12,
         zIndex: 10000,
         elevation: 20,
