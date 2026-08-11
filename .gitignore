@@ -43,3 +43,11 @@ backups/
 .claude/
 AGENTS.md
 CLAUDE.md
+.vercel
+.env*
+
+# Local deployment/build files
+.vercel
+.env.local
+dist
+*.backup-*
